@@ -2,12 +2,18 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
+const colors = {
+  accent1: '#f96854',
+  accent2: '#3db39e',
+}
+
 const Background = styled.div`
-  background: lightgreen;
+  background: ${colors.accent2};
   display: flex;
   justify-content: space-between;
   min-height: 55px;
   padding: 0 10px;
+  box-shadow: 1px 1px 12px grey;
 `
 const FlexBox = styled.div`
   display: flex;
@@ -25,19 +31,29 @@ const Links = styled.div`
   padding-top: 5px;
   padding-right: 10px;
 `
-const DropDownIcon = styled.div`
+const DropDownIcon = styled.button`
   align-self: center;
   height: 40px;
+  background: none;
+  border: none;
   :hover {
-    color: lightcoral;
+    cursor: pointer;
+  }
+  :focus {
+    outline: 0;
   }
 `
 const LinkText = styled(Link)`
   color: white;
   text-decoration: none;
   padding-right: 15px;
+`
+const LinkText2 = styled(Link)`
+  color: white;
+  text-decoration: none;
+  padding-right: 15px;
   :hover {
-    color: lightcoral;
+    color: ${colors.accent1};
   }
 `
 const NavMenu = () => <div>HI!</div>
@@ -45,12 +61,10 @@ const NavMenu = () => <div>HI!</div>
 class Header extends React.Component {
   constructor(props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this)
     this.state = { displayMenu: false }
   }
 
-  handleClick() {
-    console.log('I was clicked')
+  handleClick = () => {
     this.setState({ displayMenu: !this.state.displayMenu })
   }
   render() {
@@ -61,9 +75,9 @@ class Header extends React.Component {
             <LinkText to="/">{this.props.siteTitle}</LinkText>
           </H1>
           <Links>
-            <LinkText to="/">Why Ergo Plane?</LinkText>
-            <LinkText to="/">Features</LinkText>
-            <LinkText to="/">Relief</LinkText>
+            <LinkText2 to="/">Why Ergo Plane?</LinkText2>
+            <LinkText2 to="/">Features</LinkText2>
+            <LinkText2 to="/">Relief</LinkText2>
           </Links>
         </FlexBox>
         <DropDownIcon onClick={this.handleClick}>
