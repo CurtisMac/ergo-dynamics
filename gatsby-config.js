@@ -1,6 +1,16 @@
 module.exports = {
   siteMetadata: {
     title: 'Ergo-Dynamics',
+    menuLinks: [
+      {
+        name: 'home',
+        link: '/',
+      },
+      {
+        name: 'page2',
+        link: '/page-2',
+      },
+    ],
   },
   plugins: [
     {
