@@ -1,10 +1,9 @@
 import React from 'react'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Parent = styled.nav`
   background-color: lightgrey;
-
   min-width: 250px;
   position: absolute;
   height: 100vh;
@@ -24,9 +23,14 @@ class NavSlider extends React.Component {
   }
 
   createLinks() {
-    let links = this.props.menuLinks
-    console.log(links)
-    return <div>Yes, I did!</div>
+    const links = this.props.menuLinks
+    return links.map((linkObj, i) => {
+      return (
+        <li key={i}>
+          <Link>{linkObj.name}</Link>
+        </li>
+      )
+    })
   }
 
   render() {
@@ -35,7 +39,7 @@ class NavSlider extends React.Component {
         <div>
           <em onClick={this.click}>X</em>
         </div>
-        {this.createLinks()}
+        <ul>{this.createLinks()}</ul>
       </Parent>
     )
   }
