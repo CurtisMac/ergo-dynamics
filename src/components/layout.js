@@ -12,6 +12,10 @@ const Content = styled.div`
   padding: 0px 1.0875rem 1.45rem;
 `
 
+const SpacerTop = styled.div`
+  height: 82px;
+`
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -42,6 +46,8 @@ const Layout = ({ children }) => (
           siteTitle={data.site.siteMetadata.title}
           menuLinks={data.site.siteMetadata.menuLinks}
         />
+        <SpacerTop />
+        {/* SpacerTop prevents content from being hidden behind the fixed position header */}
         <Content>{children}</Content>
       </>
     )}
