@@ -3,11 +3,15 @@ module.exports = {
     title: 'Ergo-Dynamics',
     menuLinks: [
       {
-        name: 'home',
+        name: 'Home',
         link: '/',
       },
       {
-        name: 'page2',
+        name: 'Page 2',
+        link: '/page-2',
+      },
+      {
+        name: 'A really long link',
         link: '/page-2',
       },
     ],

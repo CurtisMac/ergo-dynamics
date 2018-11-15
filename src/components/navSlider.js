@@ -10,6 +10,45 @@ const Parent = styled.nav`
   z-index: 1;
   right: 0;
 `
+const CloseButton = styled.button`
+  height: 18px;
+  line-height: 18px;
+  background: none;
+  margin: 5px 15px;
+  padding: 0;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  :hover {
+    color: rgba(0, 0, 0, 1);
+  }
+`
+
+const UnorderedList = styled.ul`
+  list-style-type: none;
+  margin: 0;
+`
+const ListItem = styled.li`
+  background-color: rgba(169, 169, 169, 0.5);
+  margin: 0;
+  padding: 5px 15px;
+  border-bottom: 1px solid rgb(169, 169, 169);
+  :first-child {
+    border-top: 1px solid rgb(169, 169, 169);
+  }
+  transition: all 0.2s ease-in-out;
+  :hover {
+    background-color: rgba(169, 169, 169, 1);
+    transform: scale(1.1);
+  }
+`
+const LinkText = styled(Link)`
+  display: block;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+`
 
 class NavSlider extends React.Component {
   constructor(props) {
@@ -26,9 +65,11 @@ class NavSlider extends React.Component {
     const links = this.props.menuLinks
     return links.map((linkObj, i) => {
       return (
-        <li key={i}>
-          <Link>{linkObj.name}</Link>
-        </li>
+        <ListItem key={i}>
+          <LinkText onClick={this.click} to={linkObj.link}>
+            {linkObj.name}
+          </LinkText>
+        </ListItem>
       )
     })
   }
@@ -36,10 +77,8 @@ class NavSlider extends React.Component {
   render() {
     return (
       <Parent>
-        <div>
-          <em onClick={this.click}>X</em>
-        </div>
-        <ul>{this.createLinks()}</ul>
+        <CloseButton onClick={this.click}>&#10006;</CloseButton>
+        <UnorderedList>{this.createLinks()}</UnorderedList>
       </Parent>
     )
   }
