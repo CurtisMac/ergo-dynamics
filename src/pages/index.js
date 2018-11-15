@@ -1,19 +1,30 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
-import Image from '../components/image'
-import styled from 'styled-components'
+import Img from 'gatsby-image'
+// import styled from 'styled-components'
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
+      <Img fluid={data.newImage.childImageSharp.fluid} />
     </div>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
+export const query = graphql`
+  query {
+    newImage: file(relativePath: { eq: "fort-1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

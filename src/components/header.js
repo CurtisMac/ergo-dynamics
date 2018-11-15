@@ -25,6 +25,10 @@ const NavBar = styled.nav`
   padding: 0 10px;
   box-shadow: 1px 1px 12px grey;
   z-index: 2;
+
+  @media (max-width: 345px) {
+    padding: 0 0 0 4px;
+  }
 `
 const FlexBox = styled.div`
   display: flex;
@@ -35,6 +39,10 @@ const FlexBox = styled.div`
 `
 const H1 = styled.h1`
   margin: 0;
+
+  @media (max-width: 345px) {
+    font-size: calc(1rem + 4.2vmin);
+  }
 `
 const Links = styled.div`
   align-self: center;
@@ -65,6 +73,10 @@ const LinkText2 = styled(Link)`
   padding-right: 15px;
   :hover {
     color: ${colors.accent1};
+  }
+
+  @media (max-width: 345px) {
+    font-size: calc(0.5rem + 1.25vmin);
   }
 `
 

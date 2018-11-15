@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Ergo-Dynamics',
+    description:
+      'The ergo plane relieves neck and back pain caused by long periods of desk work',
     menuLinks: [
       {
         name: 'Home',
