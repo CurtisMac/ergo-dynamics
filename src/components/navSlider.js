@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { navigate } from 'gatsby'
 import styled from 'styled-components'
 
 const Parent = styled.nav`
@@ -43,7 +43,7 @@ const ListItem = styled.li`
     transform: scale(1.1);
   }
 `
-const LinkText = styled(Link)`
+const LinkText = styled.div`
   display: block;
   color: white;
   text-decoration: none;
@@ -53,12 +53,18 @@ const LinkText = styled(Link)`
 class NavSlider extends React.Component {
   constructor(props) {
     super(props)
-    this.click = this.click.bind(this)
+    this.close = this.close.bind(this)
+    this.navigate = this.navigate.bind(this)
     this.createLinks = this.createLinks.bind(this)
   }
 
-  click() {
+  close() {
     this.props.close()
+  }
+
+  navigate(path) {
+    this.close()
+    navigate(path)
   }
 
   createLinks() {
@@ -66,7 +72,7 @@ class NavSlider extends React.Component {
     return links.map((linkObj, i) => {
       return (
         <ListItem key={i}>
-          <LinkText onClick={this.click} to={linkObj.link}>
+          <LinkText onClick={() => this.navigate(linkObj.link)}>
             {linkObj.name}
           </LinkText>
         </ListItem>
@@ -77,7 +83,7 @@ class NavSlider extends React.Component {
   render() {
     return (
       <Parent>
-        <CloseButton onClick={this.click}>&#10006;</CloseButton>
+        <CloseButton onClick={this.close}>&#10006;</CloseButton>
         <UnorderedList>{this.createLinks()}</UnorderedList>
       </Parent>
     )

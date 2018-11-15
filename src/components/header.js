@@ -72,7 +72,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
-    this.state = { displayMenu: true }
+    this.state = { displayMenu: false }
   }
 
   handleClick() {
