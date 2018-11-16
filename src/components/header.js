@@ -3,11 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import NavSlider from '../components/navSlider'
-
-const colors = {
-  accent1: '#f96854',
-  accent2: '#3db39e',
-}
+import global from '../globalStyles'
 
 const Parent = styled.div`
   position: fixed;
@@ -16,7 +12,7 @@ const Parent = styled.div`
 `
 
 const NavBar = styled.nav`
-  background: ${colors.accent2};
+  background: ${global.colors.primary};
   position: relative;
   width: 100%;
   display: flex;
@@ -72,7 +68,7 @@ const LinkText2 = styled(Link)`
   text-decoration: none;
   padding-right: 15px;
   :hover {
-    color: ${colors.accent1};
+    color: ${global.colors.accent1};
   }
 
   @media (max-width: 345px) {
