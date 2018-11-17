@@ -8,13 +8,13 @@ import Card2 from '../components/cards/card2'
 const IndexPage = ({ data }) => (
   <Layout>
     {/* Carousel goes here*/}
-    {/* <Card1
+    <Card1
       image={data.postureBad.childImageSharp.fluid}
       bg={data.dotsSplat.childImageSharp.fluid}
-    /> */}
+    />
     <Card2
       image={data.postureGood.childImageSharp.fluid}
-      bg={data.dotsCircle.childImageSharp.fluid}
+      bg={data.dotsSplat.childImageSharp.fluid}
     />
   </Layout>
 )

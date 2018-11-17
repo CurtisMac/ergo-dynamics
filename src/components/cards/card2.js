@@ -23,32 +23,31 @@ const FlexContainer = styled.div`
 `
 const Container1 = styled.div`
   background-color: ${global.colors.primary};
+  color: white;
   position: relative;
   margin: 0;
-  padding: 0 15px;
-  max-width: 400px;
+  padding: 0 15px 0 40px;
+  max-width: 500px;
 `
 const Container2 = styled.div`
   position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  height: 320px;
+  height: 360px;
   width: 400px;
 `
 const Image = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
   min-width: 300px;
   padding: 4px;
   background-color: ${global.colors.arsenic};
 `
 const Accent = styled.div`
   position: absolute;
-  top: 95px;
-  right: 18px;
-  width: 220px;
+  top: 160px;
+  right: 22px;
+  width: 200px;
   padding: 3px;
   z-index: -1;
 `
@@ -58,7 +57,7 @@ const Card2 = props => (
     <ColorBox />
     <FlexContainer>
       <Container1>
-        <h2>An Age Old Preventative Princple</h2>
+        <h2>An Age Old Preventative Principle</h2>
         <p>
           Research and clinical experience has demonstrated that sitting upright
           at an inclined work surface helps to reduce biomechanical stress and
