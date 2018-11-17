@@ -4,14 +4,32 @@ import styled from 'styled-components'
 import global from '../../globalStyles'
 
 const Parent = styled.div`
+  position: relative;
+  height: 400px;
+`
+const ColorBox = styled.div`
+  width: 60%;
+  height: 400px;
+  background-color: ${global.colors.primary};
+  position: absolute;
+  z-index: -1;
+`
+const FlexContainer = styled.div`
+  min-height: 400px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 `
 const Container1 = styled.div`
+  background-color: ${global.colors.primary};
   position: relative;
-  top: 0;
-  bottom: 0;
+  margin: 0;
+  padding: 0 15px;
+  max-width: 400px;
+`
+const Container2 = styled.div`
+  position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -21,65 +39,44 @@ const Container1 = styled.div`
 const Image = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   min-width: 300px;
-  padding: 3px;
-  background-color: ${global.colors.primary};
+  padding: 4px;
+  background-color: ${global.colors.arsenic};
 `
 const Accent = styled.div`
   position: absolute;
-  top: 85px;
-  right: 100px;
-  min-width: 300px;
+  top: 95px;
+  right: 18px;
+  width: 220px;
   padding: 3px;
   z-index: -1;
 `
-const Container2 = styled.div`
-  position: relative;
-  margin: 0;
-  padding: 0 15px;
-  max-width: 400px;
-`
 
-const ColoredCircle = styled.div`
-  position: absolute;
-  top: 30px;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  opacity: 0.4;
-  background-color: ${global.colors.primary};
-  z-index: -1;
-`
-
-const Card1 = props => (
-  <>
-    <Parent>
+const Card2 = props => (
+  <Parent>
+    <ColorBox />
+    <FlexContainer>
       <Container1>
+        <h2>An Age Old Preventative Princple</h2>
+        <p>
+          Research and clinical experience has demonstrated that sitting upright
+          at an inclined work surface helps to reduce biomechanical stress and
+          discomfort throughout the vertebral column and its supporting
+          structures. This preventative health principle has been known for over
+          two hundred years!
+        </p>
+      </Container1>
+      <Container2>
         <Image>
           <Img fluid={props.image} />
         </Image>
         <Accent>
           <Img fluid={props.bg} />
         </Accent>
-      </Container1>
-
-      <Container2>
-        <h2>The Common Problem</h2>
-        <p>
-          Research and clinical experience has demonstrated that sitting upright
-          at an inclined work surface helps to reduce biomechanical stress and
-          discomfort throughout the vertebral column and its supporting
-          structures.
-        </p>
-        <ColoredCircle />
       </Container2>
-    </Parent>
-    <div />
-  </>
+    </FlexContainer>
+  </Parent>
 )
 
-export default Card1
+export default Card2

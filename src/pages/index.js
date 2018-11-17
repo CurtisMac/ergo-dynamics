@@ -8,13 +8,13 @@ import Card2 from '../components/cards/card2'
 const IndexPage = ({ data }) => (
   <Layout>
     {/* Carousel goes here*/}
-    <Card1
+    {/* <Card1
       image={data.postureBad.childImageSharp.fluid}
       bg={data.dotsSplat.childImageSharp.fluid}
-    />
+    /> */}
     <Card2
-      image={data.postureBad.childImageSharp.fluid}
-      bg={data.dotsSplat.childImageSharp.fluid}
+      image={data.postureGood.childImageSharp.fluid}
+      bg={data.dotsCircle.childImageSharp.fluid}
     />
   </Layout>
 )
@@ -27,14 +27,21 @@ export const query = graphql`
         }
       }
     }
-    dotsCircle: file(relativePath: { eq: "halftone-dots.png" }) {
+    dotsSplat: file(relativePath: { eq: "circles.png" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    dotsSplat: file(relativePath: { eq: "circles.png" }) {
+    postureGood: file(relativePath: { eq: "posture_good2.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    dotsCircle: file(relativePath: { eq: "halftone-dots.png" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid
