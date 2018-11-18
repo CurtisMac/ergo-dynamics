@@ -10,6 +10,9 @@ const Content = styled.div`
   margin: 0 auto;
   max-width: 960px;
   padding: 1rem 1.5rem;
+  @media (max-width: 350px) {
+    padding: 1rem 0;
+  }
 `
 
 const SpacerTop = styled.div`
