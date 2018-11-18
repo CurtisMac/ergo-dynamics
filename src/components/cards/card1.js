@@ -17,6 +17,11 @@ const Container1 = styled.div`
   overflow: hidden;
   height: 320px;
   width: 400px;
+  @media (max-width: 400px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `
 const Image = styled.div`
   position: absolute;
@@ -25,6 +30,9 @@ const Image = styled.div`
   min-width: 300px;
   padding: 3px;
   background-color: ${global.colors.primary};
+  @media (max-width: 400px) {
+    margin-right: 10px;
+  }
 `
 const Accent = styled.div`
   position: absolute;
