@@ -5,51 +5,67 @@ import global from '../../globalStyles'
 
 const Parent = styled.div`
   position: relative;
-  height: 400px;
+  height: 100%;
 `
 const ColorBox = styled.div`
   width: 60%;
-  height: 400px;
+  height: inherit;
   background-color: ${global.colors.primary};
   position: absolute;
   z-index: -1;
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 `
 const FlexContainer = styled.div`
-  min-height: 400px;
+  min-height: inherit;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 `
 const Container1 = styled.div`
-  background-color: ${global.colors.primary};
   color: white;
   position: relative;
   margin: 0;
-  padding: 0 15px 0 40px;
-  max-width: 500px;
+  padding: 20px 15px 0 40px;
+  max-width: 400px;
 `
 const Container2 = styled.div`
   position: relative;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  height: 360px;
+  height: 330px;
   width: 400px;
+  @media (max-width: 850px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 280px;
+  }
 `
 const Image = styled.div`
   position: absolute;
   min-width: 300px;
   padding: 4px;
+  margin-top: 40px;
   background-color: ${global.colors.arsenic};
+  @media (max-width: 850px) {
+    margin-top: 0;
+  }
 `
 const Accent = styled.div`
   position: absolute;
-  top: 160px;
-  right: 22px;
+  top: 170px;
+  right: 40px;
   width: 200px;
   padding: 3px;
+  transform: rotate(20deg);
   z-index: -1;
+  @media (max-width: 850px) {
+    display: none;
+  }
 `
 
 const Card2 = props => (
