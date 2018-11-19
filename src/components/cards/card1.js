@@ -30,6 +30,7 @@ const Image = styled.div`
   min-width: 300px;
   padding: 3px;
   background-color: ${global.colors.primary};
+  box-shadow: 3px 3px 10px #404040;
   @media (max-width: 400px) {
     margin-right: 10px;
   }

@@ -51,6 +51,7 @@ const Image = styled.div`
   padding: 4px;
   margin-top: 40px;
   background-color: ${global.colors.arsenic};
+  box-shadow: 3px 3px 10px #404040;
   @media (max-width: 850px) {
     margin-top: 0;
   }
@@ -67,6 +68,17 @@ const Accent = styled.div`
     display: none;
   }
 `
+const Btn1 = styled.button`
+  background-color: ${global.colors.accent1};
+  color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #404040;
+  margin: 10px;
+`
+// const Btn2 = styled.button`
+//   background-color: ${global.colors.accent1};
+// `
 
 const Card2 = props => (
   <Parent>
@@ -91,6 +103,9 @@ const Card2 = props => (
         </Accent>
       </Container2>
     </FlexContainer>
+    <Btn1>Button One</Btn1>
+    <Btn1>Button One</Btn1>
+    {/* <Btn2>Button Two</Btn2> */}
   </Parent>
 )
 
