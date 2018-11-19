@@ -3,6 +3,8 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import global from '../../globalStyles'
 
+import Button from '../../components/button'
+
 const Parent = styled.div`
   position: relative;
   height: 100%;
@@ -68,16 +70,13 @@ const Accent = styled.div`
     display: none;
   }
 `
-const Btn1 = styled.button`
-  background-color: ${global.colors.accent1};
-  color: white;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 3px 3px 10px #404040;
-  margin: 10px;
-`
-// const Btn2 = styled.button`
+// const Btn1 = styled.button`
 //   background-color: ${global.colors.accent1};
+//   color: white;
+//   border: none;
+//   border-radius: 5px;
+//   box-shadow: 3px 3px 10px #404040;
+//   margin: 10px;
 // `
 
 const Card2 = props => (
@@ -103,9 +102,7 @@ const Card2 = props => (
         </Accent>
       </Container2>
     </FlexContainer>
-    <Btn1>Button One</Btn1>
-    <Btn1>Button One</Btn1>
-    {/* <Btn2>Button Two</Btn2> */}
+    <Button>Push me</Button>
   </Parent>
 )
 

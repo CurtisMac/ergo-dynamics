@@ -26,7 +26,7 @@ const Container1 = styled.div`
 const Image = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   min-width: 300px;
   padding: 3px;
   background-color: ${global.colors.primary};
