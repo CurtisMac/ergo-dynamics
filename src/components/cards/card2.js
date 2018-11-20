@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import global from '../../globalStyles'
 
-import Button from '../../components/button'
+import LinkButton from '../linkButton'
 
 const Parent = styled.div`
   position: relative;
@@ -79,31 +79,33 @@ const Accent = styled.div`
 //   margin: 10px;
 // `
 
-const Card2 = props => (
-  <Parent>
-    <ColorBox />
-    <FlexContainer>
-      <Container1>
-        <h2>An Age Old Preventative Principle</h2>
-        <p>
-          Research and clinical experience has demonstrated that sitting upright
-          at an inclined work surface helps to reduce biomechanical stress and
-          discomfort throughout the vertebral column and its supporting
-          structures. This preventative health principle has been known for over
-          two hundred years!
-        </p>
-      </Container1>
-      <Container2>
-        <Image>
-          <Img fluid={props.image} />
-        </Image>
-        <Accent>
-          <Img fluid={props.bg} />
-        </Accent>
-      </Container2>
-    </FlexContainer>
-    <Button>Push me</Button>
-  </Parent>
-)
+const Card2 = props => {
+  return (
+    <Parent>
+      <ColorBox />
+      <FlexContainer>
+        <Container1>
+          <h2>An Age Old Preventative Principle</h2>
+          <p>
+            Research and clinical experience has demonstrated that sitting
+            upright at an inclined work surface helps to reduce biomechanical
+            stress and discomfort throughout the vertebral column and its
+            supporting structures. This preventative health principle has been
+            known for over two hundred years!
+          </p>
+        </Container1>
+        <Container2>
+          <Image>
+            <Img fluid={props.image} />
+          </Image>
+          <Accent>
+            <Img fluid={props.bg} />
+          </Accent>
+        </Container2>
+      </FlexContainer>
+      <LinkButton linkTo={'/page-2'}>Push me</LinkButton>
+    </Parent>
+  )
+}
 
 export default Card2
