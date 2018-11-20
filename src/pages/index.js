@@ -5,6 +5,7 @@ import Layout from '../components/layout'
 import Card1 from '../components/cards/card1'
 import Card2 from '../components/cards/card2'
 import Card3 from '../components/cards/card3'
+import Card4 from '../components/cards/card4'
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -17,10 +18,8 @@ const IndexPage = ({ data }) => (
       image={data.postureGood.childImageSharp.fluid}
       bg={data.dotsSplat.childImageSharp.fluid}
     />
-    <Card3
-      image={data.neckPain.childImageSharp.fluid}
-      bg={data.dotsCircle.childImageSharp.fluid}
-    />
+    <Card3 image={data.neckPain.childImageSharp.fluid} />
+    <Card3 image={data.postureGood.childImageSharp.fluid} />
   </Layout>
 )
 export const query = graphql`
@@ -55,7 +54,7 @@ export const query = graphql`
     }
     neckPain: file(relativePath: { eq: "Head.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 300) {
+        fluid(maxWidth: 300, grayscale: false) {
           ...GatsbyImageSharpFluid
         }
       }
