@@ -32,6 +32,9 @@ const Container1 = styled.div`
   margin: 0;
   padding: 20px 15px 0 40px;
   max-width: 400px;
+  @media (max-width: 865px) {
+    padding: 20px 15px 0;
+  }
 `
 const Container2 = styled.div`
   position: relative;
@@ -40,7 +43,7 @@ const Container2 = styled.div`
   overflow: hidden;
   height: 330px;
   width: 400px;
-  @media (max-width: 850px) {
+  @media (max-width: 865px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,8 +57,11 @@ const Image = styled.div`
   margin-top: 40px;
   background-color: ${global.colors.arsenic};
   box-shadow: 3px 3px 10px #404040;
-  @media (max-width: 850px) {
+  @media (max-width: 865px) {
     margin-top: 0;
+  }
+  @media (max-width: 318px) {
+    min-width: 200px;
   }
 `
 const Accent = styled.div`
@@ -66,18 +72,18 @@ const Accent = styled.div`
   padding: 3px;
   transform: rotate(20deg);
   z-index: -1;
-  @media (max-width: 850px) {
+  @media (max-width: 865px) {
     display: none;
   }
 `
-// const Btn1 = styled.button`
-//   background-color: ${global.colors.accent1};
-//   color: white;
-//   border: none;
-//   border-radius: 5px;
-//   box-shadow: 3px 3px 10px #404040;
-//   margin: 10px;
-// `
+const Buttons = styled.div`
+  margin-left: 60px;
+  margin-bottom: 20px;
+  @media (max-width: 865px) {
+    margin-left: 0;
+    text-align: center;
+  }
+`
 
 const Card2 = props => {
   return (
@@ -103,7 +109,10 @@ const Card2 = props => {
           </Accent>
         </Container2>
       </FlexContainer>
-      <LinkButton linkTo={'/page-2'}>Push me</LinkButton>
+      <Buttons>
+        <LinkButton linkTo={'/page-2'}>Why Ergo Plane?</LinkButton>
+        <LinkButton linkTo={'/page-2'}>See All Features</LinkButton>
+      </Buttons>
     </Parent>
   )
 }

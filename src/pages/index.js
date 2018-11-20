@@ -2,19 +2,24 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-// import Card1 from '../components/cards/card1'
+import Card1 from '../components/cards/card1'
 import Card2 from '../components/cards/card2'
+import Card3 from '../components/cards/card3'
 
 const IndexPage = ({ data }) => (
   <Layout>
     {/* Carousel goes here*/}
-    {/* <Card1
+    <Card1
       image={data.postureBad.childImageSharp.fluid}
       bg={data.dotsSplat.childImageSharp.fluid}
-    /> */}
+    />
     <Card2
       image={data.postureGood.childImageSharp.fluid}
       bg={data.dotsSplat.childImageSharp.fluid}
+    />
+    <Card3
+      image={data.neckPain.childImageSharp.fluid}
+      bg={data.dotsCircle.childImageSharp.fluid}
     />
   </Layout>
 )
@@ -42,6 +47,13 @@ export const query = graphql`
       }
     }
     dotsCircle: file(relativePath: { eq: "halftone-dots.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    neckPain: file(relativePath: { eq: "Head.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid

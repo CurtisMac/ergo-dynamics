@@ -35,10 +35,12 @@ class LinkButton extends React.Component {
   render() {
     return (
       <Btn1
-        onMouseDown={this.push}
         isPushed={this.state.isPushed}
+        onMouseDown={this.push}
         onMouseUp={this.push}
-        onMouseLeave={this.push}
+        onMouseLeave={() => {
+          this.setState({ isPushed: false })
+        }}
       >
         <LinkText to={this.props.linkTo}>{this.props.children}</LinkText>
       </Btn1>
