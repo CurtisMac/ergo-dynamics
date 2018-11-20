@@ -13,8 +13,9 @@ const Parent = styled.div`
 const ColorBox = styled.div`
   width: 60%;
   height: inherit;
-  background-color: ${global.colors.primary};
+  background-color: ${global.colors.accent1};
   position: absolute;
+  right: 0;
   z-index: -1;
   @media (max-width: 960px) {
     width: 100%;
@@ -31,7 +32,7 @@ const Container1 = styled.div`
   color: white;
   position: relative;
   margin: 0;
-  padding: 20px 15px 0 40px;
+  padding: 20px 15px 0;
   max-width: 400px;
   @media (max-width: 865px) {
     padding: 20px 15px 0;
@@ -58,6 +59,9 @@ const Image = styled.div`
   margin-top: 40px;
   background-color: ${global.colors.arsenic};
   box-shadow: 3px 3px 10px #404040;
+  @media (min-width: 865px) {
+    right: 0;
+  }
   @media (max-width: 865px) {
     margin-top: 0;
   }
@@ -68,7 +72,7 @@ const Image = styled.div`
 const Accent = styled.div`
   position: absolute;
   top: 170px;
-  right: 40px;
+  left: 0;
   width: 200px;
   padding: 3px;
   transform: rotate(20deg);
@@ -78,11 +82,13 @@ const Accent = styled.div`
   }
 `
 const Buttons = styled.div`
-  margin-left: 60px;
-  margin-bottom: 20px;
+  margin: 0 30px 20px auto;
+  text-align: center;
+  width: 400px;
   @media (max-width: 865px) {
     margin-left: 0;
     text-align: center;
+    width: 100%;
   }
 `
 
@@ -91,6 +97,14 @@ const Card2 = props => {
     <Parent>
       <ColorBox />
       <FlexContainer>
+        <Container2>
+          <Accent>
+            <Img fluid={props.bg} />
+          </Accent>
+          <Image>
+            <Img fluid={props.image} />
+          </Image>
+        </Container2>
         <Container1>
           <h2>An Age Old Preventative Principle</h2>
           <p>
@@ -101,18 +115,14 @@ const Card2 = props => {
             known for over two hundred years!
           </p>
         </Container1>
-        <Container2>
-          <Image>
-            <Img fluid={props.image} />
-          </Image>
-          <Accent>
-            <Img fluid={props.bg} />
-          </Accent>
-        </Container2>
       </FlexContainer>
-      <Buttons>
-        <LinkButton linkTo={'/page-2'}>Why Ergo Plane?</LinkButton>
-        <LinkButton linkTo={'/page-2'}>See All Features</LinkButton>
+      <Buttons primary>
+        <LinkButton linkTo={'/page-2'} primary>
+          Order Now
+        </LinkButton>
+        <LinkButton linkTo={'/page-2'} primary>
+          More Resources
+        </LinkButton>
       </Buttons>
     </Parent>
   )

@@ -7,6 +7,7 @@ const Parent = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  margin-top: calc(20px + 8vw);
 `
 const Container1 = styled.div`
   position: relative;

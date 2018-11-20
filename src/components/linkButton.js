@@ -4,7 +4,8 @@ import global from '../globalStyles'
 import { Link } from 'gatsby'
 
 const Btn1 = styled.button`
-  background-color: ${global.colors.accent1};
+  background-color: ${props =>
+    props.primary ? global.colors.primary : global.colors.accent1};
   border: none;
   border-radius: 5px;
   box-shadow: ${props => (props.isPushed ? 'none' : '3px 3px 10px #404040')};
@@ -41,6 +42,7 @@ class LinkButton extends React.Component {
         onMouseLeave={() => {
           this.setState({ isPushed: false })
         }}
+        {...this.props}
       >
         <LinkText to={this.props.linkTo}>{this.props.children}</LinkText>
       </Btn1>

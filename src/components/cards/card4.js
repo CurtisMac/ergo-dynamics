@@ -16,7 +16,7 @@ const Container1 = styled.div`
   margin: 0;
   padding: 0;
   overflow: hidden;
-  height: 200px;
+  height: 255px;
   width: 320px;
   @media (max-width: 400px) {
     display: flex;
@@ -45,42 +45,55 @@ const Container2 = styled.div`
   padding: 0 15px;
   max-width: 400px;
 `
-
 const ColoredCircle = styled.div`
   position: absolute;
-  bottom: 20px;
-  left: 0;
   margin: 0;
   padding: 0;
-  width: 150px;
-  height: 150px;
+
   border-radius: 50%;
   opacity: 0.4;
-  background-color: ${global.colors.accent1};
   z-index: -1;
+`
+const ColoredCircle1 = styled(ColoredCircle)`
+  background-color: ${global.colors.accent1};
+  top: 0;
+  left: 60px;
+  width: 90px;
+  height: 90px;
+`
+const ColoredCircle2 = styled(ColoredCircle)`
+  background-color: ${global.colors.primary};
+  bottom: 15px;
+  right: 0;
+  width: 130px;
+  height: 130px;
 `
 
 const Card1 = props => (
   <>
     <Parent>
+      <Container2>
+        <ColoredCircle1 />
+        <h2>Say Hello to comfort, activity and rest...</h2>
+        <p>
+          The more time that your head is hanging over a work area, the more
+          fatigue, strain and eventually pain you are likely to feel. By
+          bringing your head into a more upright position, the overworked
+          muscles at the back of your neck get a rest. If you’ve sustained a
+          whiplash type injury,your muscles need to be trained to relax. Joints
+          need to be decompressed. Muscles need to regain their ability to
+          contract and relax. The ERGO-PLANE helps in this process and provides
+          a bridge between activity and rest. The upright posture encouraged by
+          the ERGO-Plane also decreases strain on spinal ligaments and
+          encourages activation of deep core muscles.
+        </p>
+        <ColoredCircle2 />
+      </Container2>
       <Container1>
         <Image>
           <Img fluid={props.image} />
         </Image>
       </Container1>
-
-      <Container2>
-        <h2>Say Goodby to neck pain, fatigue and muscle tension</h2>
-        <p>
-          In addition to being a valuable asset to patients experiencing neck
-          pain, ‘whiplash’, and upper and lower back pain, the ERGO-PLANE is
-          also beneficial, in a preventative capacity, to anyone spending long
-          hours hunched over a desk. Students, teachers, accountants and
-          bookkeepers can all obtain significant relief from postural muscle
-          tension pain and achieve a more efficient pattern of breathing.
-        </p>
-        <ColoredCircle />
-      </Container2>
     </Parent>
     <div />
   </>
