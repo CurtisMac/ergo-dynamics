@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import global from '../globalStyles'
 
+import Testimony from '../components/testimony'
+
 const testimonies = [
   {
     text:
@@ -20,14 +22,17 @@ const testimonies = [
   },
 ]
 
-const Testimony = () => {}
-
 class Testimonials extends React.Component {
   // constructor() {
   //   super()
   // }
   render() {
-    return <div>What People Say...</div>
+    return (
+      <div>
+        <h2>What People Say...</h2>
+        <Testimony text={testimonies[0].text} author={testimonies[0].author} />
+      </div>
+    )
   }
 }
 
