@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import global from '../globalStyles'
+import { Transition } from 'react-spring'
 
 import Testimony from '../components/testimony'
 
@@ -22,16 +22,28 @@ const testimonies = [
   },
 ]
 
+const Parent = styled.div`
+  margin-top: 40px;
+`
+const items = [1, 2, 3, 4]
 class Testimonials extends React.Component {
   // constructor() {
   //   super()
   // }
   render() {
     return (
-      <div>
-        <h2>What People Say...</h2>
-        <Testimony text={testimonies[0].text} author={testimonies[0].author} />
-      </div>
+      <Transition
+        items={items}
+        from={{ transform: 'translate3d(0,-40px,0)' }}
+        enter={{ transform: 'translate3d(0,0px,0)' }}
+        leave={{ transform: 'translate3d(0,-40px,0)' }}
+      >
+        {item => props => <div style={props}>{item}</div>}
+      </Transition>
+      // <Parent>
+      //   <h2>What People Say...</h2>
+      //   <Testimony text={testimonies[0].text} author={testimonies[0].author} />
+      // </Parent>
     )
   }
 }

@@ -2,17 +2,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-import Card1 from '../components/cards/card1'
-import Card2 from '../components/cards/card2'
-import Card3 from '../components/cards/card3'
-import Card4 from '../components/cards/card4'
-import Card5 from '../components/cards/card5'
+// import Card1 from '../components/cards/card1'
+// import Card2 from '../components/cards/card2'
+// import Card3 from '../components/cards/card3'
+// import Card4 from '../components/cards/card4'
+// import Card5 from '../components/cards/card5'
 import Testimonials from '../components/testimonials'
 
 const IndexPage = ({ data }) => (
   <Layout>
     {/* Carousel goes here*/}
-    <Card1
+    {/* <Card1
       image={data.postureBad.childImageSharp.fluid}
       bg={data.dotsSplat.childImageSharp.fluid}
     />
@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => (
     <Card5
       image={data.postureGood.childImageSharp.fluid}
       bg={data.dotsSplatGreen.childImageSharp.fluid}
-    />
+    /> */}
     <Testimonials />
   </Layout>
 )

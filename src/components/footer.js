@@ -4,12 +4,14 @@ import global from '../globalStyles'
 
 const Parent = styled.footer`
   display: flex;
-  position: relative;
+  position: absolute;
+  bottom: 0;
   justify-content: space-between;
   flex-flow: row wrap;
   background-color: ${global.colors.primary};
   color: white;
   min-height: 40px;
+  width: 100%;
   padding: 10px;
   margin-top: 20px;
   box-shadow: 1px 1px 12px grey;
