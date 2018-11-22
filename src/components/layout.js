@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Header from './header'
+import Footer from './footer'
 
 const Content = styled.div`
   margin: 0 auto;
@@ -55,6 +56,7 @@ const Layout = ({ children }) => (
         <SpacerTop />
         {/* SpacerTop prevents content from being hidden behind the fixed position header */}
         <Content>{children}</Content>
+        <Footer />
       </>
     )}
   />
