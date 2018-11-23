@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
+import { Transition } from 'react-spring'
+
 const Parent = styled.nav`
   background-color: lightgrey;
   min-width: 250px;
@@ -75,12 +77,32 @@ class NavSlider extends React.Component {
   }
 
   render() {
+    const show = this.props.show
     return (
-      <Parent>
-        <CloseButton onClick={this.close}>&#10006;</CloseButton>
-        <UnorderedList>{this.createLinks()}</UnorderedList>
-      </Parent>
+      <Transition
+        items={show}
+        from={
+          { opacity: 0 } // keys={item => item.key}
+        }
+        enter={{ opacity: 1 }}
+        leave={{ opacity: 0 }}
+      >
+        {show =>
+          show &&
+          (props => (
+            <Parent style={props}>
+              <CloseButton onClick={this.close}>&#10006;</CloseButton>
+              <UnorderedList>{this.createLinks()}</UnorderedList>
+            </Parent>
+          ))
+        }
+      </Transition>
     )
+
+    // <Parent>
+    //   <CloseButton onClick={this.close}>&#10006;</CloseButton>
+    //   <UnorderedList>{this.createLinks()}</UnorderedList>
+    // </Parent>
   }
 }
 
