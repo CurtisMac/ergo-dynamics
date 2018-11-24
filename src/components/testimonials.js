@@ -57,8 +57,29 @@ class Testimonials extends React.Component {
       <Parent>
         <h2>What People Say...</h2>
         <Carousel>
-          <Spring to={{ opacity: show ? 1 : 0 }}>
+          {/* <Spring to={{ opacity: show ? 1 : 0 }}>
             {props => <div style={props}>Hello</div>}
+          </Spring> */}
+          <Spring
+            to={
+              {
+                opacity: show ? 1 : 0.5,
+                transform: show
+                  ? 'matrix(1.1, 0, 0, 1.1, 250, 0)'
+                  : 'matrix(1, 0, 0, 1, 0, 0)',
+              }
+              // transform: show ? 'translateX(200px)' : 'translateX(0)',
+              // transform: show ? 'scale(1.1)' : 'scale(1)',
+            }
+          >
+            {props => (
+              <div style={props}>
+                <Testimony
+                  text={testimonies[0].text}
+                  author={testimonies[0].author}
+                />
+              </div>
+            )}
           </Spring>
         </Carousel>
       </Parent>
