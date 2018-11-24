@@ -26,7 +26,6 @@ const CloseButton = styled.button`
     color: rgba(0, 0, 0, 1);
   }
 `
-
 const UnorderedList = styled.ul`
   list-style-type: none;
   margin: 0;
@@ -81,11 +80,9 @@ class NavSlider extends React.Component {
     return (
       <Transition
         items={show}
-        from={
-          { opacity: 0 } // keys={item => item.key}
-        }
-        enter={{ opacity: 1 }}
-        leave={{ opacity: 0 }}
+        from={{ transform: 'translateX(300px)' }}
+        enter={{ transform: 'translateX(0)' }}
+        leave={{ transform: 'translateX(300px)' }}
       >
         {show =>
           show &&

@@ -115,12 +115,11 @@ class Header extends React.Component {
             </svg>
           </DropDownIcon>
         </NavBar>
-        {this.state.displayMenu && (
-          <NavSlider
-            close={this.handleClick}
-            menuLinks={this.props.menuLinks}
-          />
-        )}
+        <NavSlider
+          close={this.handleClick}
+          menuLinks={this.props.menuLinks}
+          show={this.state.displayMenu}
+        />
       </Parent>
     )
   }
