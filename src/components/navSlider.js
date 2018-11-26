@@ -95,11 +95,6 @@ class NavSlider extends React.Component {
         }
       </Transition>
     )
-
-    // <Parent>
-    //   <CloseButton onClick={this.close}>&#10006;</CloseButton>
-    //   <UnorderedList>{this.createLinks()}</UnorderedList>
-    // </Parent>
   }
 }
 

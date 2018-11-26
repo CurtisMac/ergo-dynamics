@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Spring } from 'react-spring'
 
 import Testimony from '../components/testimony'
 
@@ -23,70 +22,113 @@ let testimonies = [
     author: 'Person 3',
     id: 3,
   },
+  {
+    text:
+      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    author: 'Person 4',
+    id: 4,
+  },
+  {
+    text:
+      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    author: 'Person 5',
+    id: 5,
+  },
 ]
 
 const Parent = styled.div`
   margin-top: 4px;
+  overflow: hidden;
 `
 const Carousel = styled.div`
   display: flex;
+  justify-content: center;
   flex-flow: row;
+  padding: 30px;
+  width: 100%;
 `
+const CardWrapper = styled.div`
+  display: flex;
+  ${props =>
+    props.shifting
+      ? 'transform: translate(-250px)'
+      : 'transform: translate(0px)'};
+  ${props => (props.shifting ? 'opacity: 0.5' : 'opacity: 1')};
+  ${props =>
+    props.shifting ? 'transition: transform 1s ease' : 'transition: none'};
+`
+
+const CardWrapperLeft = styled(CardWrapper)`
+  flex: 1;
+  opacity: 0.5;
+`
+const CardWrapperCenter = styled(CardWrapper)`
+  flex: 1;
+  ${props =>
+    props.shifting
+      ? 'transform: translate(-250px) scale(1)'
+      : 'transform: translate(0px) scale(1.1)'};
+`
+const CardWrapperRight = styled(CardWrapper)`
+  flex: 1;
+  opacity: 0.5;
+  z-index: -1;
+`
+
 class Testimonials extends React.Component {
   constructor() {
     super()
-    this.state = {
-      show: true,
-    }
+    this.state = { shifting: false, testimonies: testimonies.slice(0, 3) }
     this.mixer = this.mixer.bind(this)
+    this.shift = this.shift.bind(this)
+    this.timer = this.timer.bind(this)
   }
 
   componentDidMount() {
-    this.mixer()
+    this.timer()
+  }
+
+  shift() {
+    this.setState(state => ({ shifting: !state.shifting }))
+  }
+
+  timer() {
+    setTimeout(() => this.shift(), 8000)
+    setTimeout(() => this.timer(), 8000)
   }
 
   mixer() {
-    console.log('mixer was called')
-    setTimeout(() => this.setState(state => ({ show: !state.show })), 4000)
-    setTimeout(() => this.mixer(), 4000)
+    testimonies.push(testimonies.shift())
+    let array = testimonies.slice(0, 3)
+    this.setState(() => ({
+      testimonies: array,
+    }))
+    // setTimeout(() => this.mixer(), 2000)
   }
 
   render() {
-    let show = this.state.show
+    let testimony = this.state.testimonies
     return (
       <Parent>
+        <button onClick={this.shift}>Shift</button>
         <h2>What People Say...</h2>
         <Carousel>
-          {/* <Spring to={{ opacity: show ? 1 : 0 }}>
-            {props => <div style={props}>Hello</div>}
-          </Spring> */}
-          <Spring
-            to={
-              {
-                opacity: show ? 1 : 0.5,
-                transform: show
-                  ? 'matrix(1.1, 0, 0, 1.1, 250, 0)'
-                  : 'matrix(1, 0, 0, 1, 0, 0)',
-              }
-              // transform: show ? 'translateX(200px)' : 'translateX(0)',
-              // transform: show ? 'scale(1.1)' : 'scale(1)',
-            }
+          <CardWrapperLeft shifting={this.state.shifting}>
+            <Testimony text={testimony[0].text} author={testimony[0].author} />
+          </CardWrapperLeft>
+          <CardWrapperCenter
+            shifting={this.state.shifting}
+            onTransitionEnd={() => (this.shift(), this.mixer())}
           >
-            {props => (
-              <div style={props}>
-                <Testimony
-                  text={testimonies[0].text}
-                  author={testimonies[0].author}
-                />
-              </div>
-            )}
-          </Spring>
+            <Testimony text={testimony[1].text} author={testimony[1].author} />
+          </CardWrapperCenter>
+          <CardWrapperRight shifting={this.state.shifting}>
+            <Testimony text={testimony[2].text} author={testimony[2].author} />
+          </CardWrapperRight>
         </Carousel>
       </Parent>
     )
   }
 }
-
-/* <Testimony text={testimonies[0].text} author={testimonies[0].author} /> */
 
 export default Testimonials

@@ -10,8 +10,10 @@ const Card = styled.div`
   border: 1px solid lightgrey;
   border-radius: 15px;
   padding: 10px;
+  margin: 0 5px;
   box-shadow: 3px 3px 10px #404040;
-  max-width: 280px;
+  background: white;
+  width: 250px;
   min-height: 350px;
   text-align: center;
 `
