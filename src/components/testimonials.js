@@ -46,6 +46,7 @@ const Carousel = styled.div`
   flex-flow: row;
   padding: 30px;
   width: 100%;
+  transform: translate(125px);
 `
 const CardWrapper = styled.div`
   display: flex;
@@ -74,11 +75,14 @@ const CardWrapperRight = styled(CardWrapper)`
   opacity: 0.5;
   z-index: -1;
 `
+const CardWrapperHidden = styled(CardWrapper)`
+  flex: 1;
+`
 
 class Testimonials extends React.Component {
   constructor() {
     super()
-    this.state = { shifting: false, testimonies: testimonies.slice(0, 3) }
+    this.state = { shifting: false, testimonies: testimonies.slice(0, 4) }
     this.mixer = this.mixer.bind(this)
     this.shift = this.shift.bind(this)
     this.timer = this.timer.bind(this)
@@ -93,17 +97,16 @@ class Testimonials extends React.Component {
   }
 
   timer() {
-    setTimeout(() => this.shift(), 8000)
-    setTimeout(() => this.timer(), 8000)
+    setTimeout(() => this.shift(), 3000)
+    setTimeout(() => this.timer(), 3000)
   }
 
   mixer() {
     testimonies.push(testimonies.shift())
-    let array = testimonies.slice(0, 3)
+    let array = testimonies.slice(0, 4)
     this.setState(() => ({
       testimonies: array,
     }))
-    // setTimeout(() => this.mixer(), 2000)
   }
 
   render() {
@@ -125,6 +128,9 @@ class Testimonials extends React.Component {
           <CardWrapperRight shifting={this.state.shifting}>
             <Testimony text={testimony[2].text} author={testimony[2].author} />
           </CardWrapperRight>
+          <CardWrapperHidden shifting={this.state.shifting}>
+            <Testimony text={testimony[3].text} author={testimony[3].author} />
+          </CardWrapperHidden>
         </Carousel>
       </Parent>
     )
