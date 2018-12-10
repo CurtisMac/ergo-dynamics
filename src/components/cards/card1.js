@@ -8,6 +8,7 @@ const Parent = styled.div`
   flex-flow: row wrap;
   justify-content: space-around;
   margin-top: calc(20px + 8vw);
+  align-items: center;
 `
 const Container1 = styled.div`
   position: relative;
@@ -34,6 +35,7 @@ const Image = styled.div`
   box-shadow: 3px 3px 10px #404040;
   @media (max-width: 400px) {
     margin-right: 10px;
+    right: 0;
   }
   @media (max-width: 310px) {
     min-width: 200px;

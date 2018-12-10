@@ -34,6 +34,7 @@ const Image = styled.div`
   box-shadow: 3px 3px 10px #404040;
   @media (max-width: 400px) {
     margin-right: 10px;
+    right: 0;
   }
   @media (max-width: 310px) {
     min-width: 200px;

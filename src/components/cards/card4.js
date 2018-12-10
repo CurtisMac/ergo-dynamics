@@ -8,6 +8,7 @@ const Parent = styled.div`
   flex-flow: row wrap;
   justify-content: space-around;
   margin-top: calc(30px + 10vw);
+  align-items: center;
 `
 const Container1 = styled.div`
   position: relative;
@@ -30,10 +31,12 @@ const Image = styled.div`
   right: 10px;
   min-width: 300px;
   padding: 3px;
+  margin: 0 auto;
   background-color: ${global.colors.primary};
   box-shadow: 3px 3px 10px #404040;
   @media (max-width: 400px) {
     margin-right: 10px;
+    right: 0;
   }
   @media (max-width: 310px) {
     min-width: 200px;
@@ -49,7 +52,6 @@ const ColoredCircle = styled.div`
   position: absolute;
   margin: 0;
   padding: 0;
-
   border-radius: 50%;
   opacity: 0.4;
   z-index: -1;

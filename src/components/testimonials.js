@@ -37,8 +37,9 @@ let testimonies = [
 ]
 
 const Parent = styled.div`
-  margin-top: 4px;
+  margin: 20px auto;
   overflow: hidden;
+  max-width: 785px;
 `
 const Carousel = styled.div`
   display: flex;
@@ -50,39 +51,43 @@ const Carousel = styled.div`
 `
 const CardWrapper = styled.div`
   display: flex;
+  flex: 1;
   ${props =>
     props.shifting
-      ? 'transform: translate(-250px)'
+      ? 'transform: translate(-260px)'
       : 'transform: translate(0px)'};
-  ${props => (props.shifting ? 'opacity: 0.5' : 'opacity: 1')};
   ${props =>
     props.shifting ? 'transition: transform 1s ease' : 'transition: none'};
 `
-
 const CardWrapperLeft = styled(CardWrapper)`
-  flex: 1;
   opacity: 0.5;
 `
-const CardWrapperCenter = styled(CardWrapper)`
+const CardWrapperCenter = styled.div`
+  display: flex;
   flex: 1;
   ${props =>
+    props.shifting ? 'transition: transform 1s ease' : 'transition: none'};
+  ${props => (props.shifting ? 'opacity: 0.5' : 'opacity: 1')};
+  ${props =>
     props.shifting
-      ? 'transform: translate(-250px) scale(1)'
-      : 'transform: translate(0px) scale(1.1)'};
+      ? 'transform: translate(-260px) scale(1)'
+      : `transform: translate(0px) scale(1.1)`};
 `
 const CardWrapperRight = styled(CardWrapper)`
-  flex: 1;
   opacity: 0.5;
   z-index: -1;
 `
 const CardWrapperHidden = styled(CardWrapper)`
-  flex: 1;
+  ${props => (props.shifting ? 'opacity: 0.5' : 'opacity: 0')};
 `
 
 class Testimonials extends React.Component {
   constructor() {
     super()
-    this.state = { shifting: false, testimonies: testimonies.slice(0, 4) }
+    this.state = {
+      shifting: false,
+      testimonies: testimonies.slice(0, 4),
+    }
     this.mixer = this.mixer.bind(this)
     this.shift = this.shift.bind(this)
     this.timer = this.timer.bind(this)
@@ -97,8 +102,8 @@ class Testimonials extends React.Component {
   }
 
   timer() {
-    setTimeout(() => this.shift(), 3000)
-    setTimeout(() => this.timer(), 3000)
+    setTimeout(() => this.shift(), 8000)
+    setTimeout(() => this.timer(), 8000)
   }
 
   mixer() {
@@ -113,7 +118,6 @@ class Testimonials extends React.Component {
     let testimony = this.state.testimonies
     return (
       <Parent>
-        <button onClick={this.shift}>Shift</button>
         <h2>What People Say...</h2>
         <Carousel>
           <CardWrapperLeft shifting={this.state.shifting}>
