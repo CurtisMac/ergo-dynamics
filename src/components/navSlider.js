@@ -11,6 +11,7 @@ const Parent = styled.nav`
   height: 100vh;
   z-index: 1;
   right: 0;
+  box-shadow: -1px 0 12px grey;
 `
 const CloseButton = styled.button`
   height: 18px;
@@ -31,20 +32,23 @@ const UnorderedList = styled.ul`
   margin: 0;
 `
 const ListItem = styled.li`
-  /* background-color: rgba(169, 169, 169, 0.5); */
   background-color: ${global.colors.primary};
-  opacity: 1;
   margin: 0;
   padding: 5px 15px;
   border-bottom: 1px solid rgb(169, 169, 169);
+  border-top: 1px solid rgb(169, 169, 169);
   :first-child {
-    border-top: 1px solid rgb(169, 169, 169);
+    border-top: 1.5px solid rgb(169, 169, 169);
+  }
+  :last-child {
+    border-bottom: 1.5px solid rgb(169, 169, 169);
   }
   transition: all 0.2s ease-in-out;
   :hover {
-    /* background-color: rgba(169, 169, 169, 1); */
-    opacity: 1;
     transform: scale(1.1);
+    border-bottom: 1.75px solid rgb(169, 169, 169);
+    border-top: 1.75px solid rgb(169, 169, 169);
+    box-shadow: -1px 0 12px grey;
   }
 `
 const LinkText = styled(Link)`
