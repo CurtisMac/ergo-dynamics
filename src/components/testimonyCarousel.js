@@ -1,40 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Testimony from '../components/testimony'
-
-let testimonies = [
-  {
-    text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    author: 'Person 1',
-    id: 1,
-  },
-  {
-    text:
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    author: 'Person 2',
-    id: 2,
-  },
-  {
-    text:
-      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    author: 'Person 3',
-    id: 3,
-  },
-  {
-    text:
-      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    author: 'Person 4',
-    id: 4,
-  },
-  {
-    text:
-      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    author: 'Person 5',
-    id: 5,
-  },
-]
+import Testimony from './testimony'
+import testimonies from '../data/testimonies'
 
 const Parent = styled.div`
   margin: 20px auto;
@@ -102,8 +70,8 @@ class Testimonials extends React.Component {
   }
 
   timer() {
-    setTimeout(() => this.shift(), 8000)
-    setTimeout(() => this.timer(), 8000)
+    setTimeout(() => this.shift(), 9000)
+    setTimeout(() => this.timer(), 9000)
   }
 
   mixer() {
@@ -121,19 +89,31 @@ class Testimonials extends React.Component {
         <h2>What People Say...</h2>
         <Carousel>
           <CardWrapperLeft shifting={this.state.shifting}>
-            <Testimony text={testimony[0].text} author={testimony[0].author} />
+            <Testimony
+              text={testimony[0].excerpt}
+              author={testimony[0].author}
+            />
           </CardWrapperLeft>
           <CardWrapperCenter
             shifting={this.state.shifting}
             onTransitionEnd={() => (this.shift(), this.mixer())}
           >
-            <Testimony text={testimony[1].text} author={testimony[1].author} />
+            <Testimony
+              text={testimony[1].excerpt}
+              author={testimony[1].author}
+            />
           </CardWrapperCenter>
           <CardWrapperRight shifting={this.state.shifting}>
-            <Testimony text={testimony[2].text} author={testimony[2].author} />
+            <Testimony
+              text={testimony[2].excerpt}
+              author={testimony[2].author}
+            />
           </CardWrapperRight>
           <CardWrapperHidden shifting={this.state.shifting}>
-            <Testimony text={testimony[3].text} author={testimony[3].author} />
+            <Testimony
+              text={testimony[3].excerpt}
+              author={testimony[3].author}
+            />
           </CardWrapperHidden>
         </Carousel>
       </Parent>
