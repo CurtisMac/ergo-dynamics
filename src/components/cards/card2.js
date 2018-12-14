@@ -112,7 +112,7 @@ const Card2 = props => {
       </FlexContainer>
       <Buttons>
         <LinkButton linkTo={'/page-2'}>Why Ergo Plane?</LinkButton>
-        <LinkButton linkTo={'/page-2'}>See All Features</LinkButton>
+        <LinkButton linkTo={'/features'}>See All Features</LinkButton>
       </Buttons>
     </Parent>
   )

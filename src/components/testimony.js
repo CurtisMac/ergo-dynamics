@@ -9,11 +9,11 @@ const Card = styled.div`
   border: 1px solid lightgrey;
   border-radius: 15px;
   padding: 10px;
-  margin: 0 5px;
+  margin: ${props => (props.large ? '25px 0' : '0 5px')};
   box-shadow: 3px 3px 10px #404040;
   background: white;
   width: ${props => (props.large ? '100%' : '250px')};
-  min-height: 350px;
+  min-height: ${props => (props.large ? '100%' : '350px')};
   text-align: center;
 `
 const Text = styled.q`
@@ -38,7 +38,6 @@ const Author = styled.em`
 const Testimony = props => (
   <Card {...props}>
     <Text>{props.text}</Text>
-
     <br />
     <Author>- {props.author}</Author>
   </Card>

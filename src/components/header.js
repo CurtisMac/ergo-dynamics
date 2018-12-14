@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-
 import NavSlider from '../components/navSlider'
 import global from '../globalStyles'
 
@@ -97,7 +96,7 @@ class Header extends React.Component {
             </H1>
             <Links>
               <LinkText2 to="/">Why Ergo Plane?</LinkText2>
-              <LinkText2 to="/">Features</LinkText2>
+              <LinkText2 to="/features">Features</LinkText2>
               <LinkText2 to="/">Relief</LinkText2>
             </Links>
           </FlexBox>

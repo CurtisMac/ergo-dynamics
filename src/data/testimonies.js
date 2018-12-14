@@ -1,7 +1,7 @@
 const testimonies = [
   {
     text:
-      'The DeskWedge has given me the chance to do my homework more effectively and efficiently with less lower back and neck pain.The blue strips are effective for holding text books and clip boards in place. Overall the DeskWedge isn’t just an attractive tool, it has enabled me to do my homework with less pain.',
+      'The Desk Wedge has given me the chance to do my homework more effectively and efficiently with less lower back and neck pain.The blue strips are effective for holding text books and clip boards in place. Overall the DeskWedge isn’t just an attractive tool, it has enabled me to do my homework with less pain.',
     excerpt:
       '...the DeskWedge isn’t just an attractive tool, it has enabled me to do my homework with less pain.',
     author: 'K.D., Student',
@@ -49,7 +49,7 @@ const testimonies = [
   },
   {
     text:
-      'Your Desk Wedge pleases me by just looking at it and it so enhances my life style. I’ve shown it off so often in the hospital I’m almost afraid to nod off in case some-one swipes it. To me at present it is a much greater invention than scotch tape.',
+      'Your Desk Wedge pleases me by just looking at it and it so enhances my life style. I’ve shown it off so often in the hospital I’m almost afraid to nod off in case someone swipes it. To me at present it is a much greater invention than scotch tape.',
     excerpt:
       '...To me at present [the Desk Wedge] is a much greater invention than scotch tape.',
     author: 'M.P., Hospital patient',

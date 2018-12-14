@@ -9,8 +9,8 @@ module.exports = {
         link: '/',
       },
       {
-        name: 'Page 2',
-        link: '/page-2',
+        name: 'Features',
+        link: '/features',
       },
       {
         name: 'Testimonials',

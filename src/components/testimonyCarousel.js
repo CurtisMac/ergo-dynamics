@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import { Link } from 'gatsby'
 import Testimony from './testimony'
 import testimonies from '../data/testimonies'
+import global from '../globalStyles'
 
 const Parent = styled.div`
   margin: 20px auto;
   overflow: hidden;
   max-width: 785px;
+  @media (max-width: 400px) {
+    padding: 0 10px;
+  }
 `
 const Carousel = styled.div`
   display: flex;
@@ -48,6 +52,11 @@ const CardWrapperRight = styled(CardWrapper)`
 const CardWrapperHidden = styled(CardWrapper)`
   ${props => (props.shifting ? 'opacity: 0.5' : 'opacity: 0')};
 `
+const LinkedText = styled(Link)`
+  color: ${global.colors.accent1};
+  text-decoration: none;
+  float: right;
+`
 
 class Testimonials extends React.Component {
   constructor() {
@@ -71,13 +80,12 @@ class Testimonials extends React.Component {
   }
 
   shift() {
-    console.count('shifted')
     this.setState(state => ({ shifting: !state.shifting }))
   }
 
   timer() {
-    this.shiftTimeout = setTimeout(() => this.shift(), 2000)
-    this.timerTimeout = setTimeout(() => this.timer(), 2000)
+    this.shiftTimeout = setTimeout(() => this.shift(), 8000)
+    this.timerTimeout = setTimeout(() => this.timer(), 8000)
   }
 
   mixer() {
@@ -122,6 +130,7 @@ class Testimonials extends React.Component {
             />
           </CardWrapperHidden>
         </Carousel>
+        <LinkedText to="/testimonials">read more...</LinkedText>
       </Parent>
     )
   }

@@ -1,13 +1,30 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import styled from 'styled-components'
 import Testimony from '../components/testimony'
-import testimony from '../data/testimonies'
+import testimonies from '../data/testimonies'
 
-const Testimonies = () => (
-  <Layout>
-    <h1>Testimonies</h1>
-    <Testimony large text={testimony[2].text} author={testimony[2].author} />
-  </Layout>
-)
+const Parent = styled.div`
+  margin: 10px;
+`
+
+const Testimonies = () => {
+  const cards = testimonies.map(testimony => (
+    <Testimony
+      large
+      text={testimony.text}
+      author={testimony.author}
+      key={testimony.id}
+    />
+  ))
+  return (
+    <Layout>
+      <Parent>
+        <h1>Testimonies</h1>
+        {cards}
+      </Parent>
+    </Layout>
+  )
+}
+
 export default Testimonies
