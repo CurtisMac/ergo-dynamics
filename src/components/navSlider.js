@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-
+import global from '../globalStyles'
 import { Transition } from 'react-spring'
 
 const Parent = styled.nav`
-  background-color: lightgrey;
+  background-color: ${global.colors.primary};
   min-width: 250px;
   position: absolute;
   height: 100vh;
@@ -31,7 +31,9 @@ const UnorderedList = styled.ul`
   margin: 0;
 `
 const ListItem = styled.li`
-  background-color: rgba(169, 169, 169, 0.5);
+  /* background-color: rgba(169, 169, 169, 0.5); */
+  background-color: ${global.colors.primary};
+  opacity: 1;
   margin: 0;
   padding: 5px 15px;
   border-bottom: 1px solid rgb(169, 169, 169);
@@ -40,7 +42,8 @@ const ListItem = styled.li`
   }
   transition: all 0.2s ease-in-out;
   :hover {
-    background-color: rgba(169, 169, 169, 1);
+    /* background-color: rgba(169, 169, 169, 1); */
+    opacity: 1;
     transform: scale(1.1);
   }
 `

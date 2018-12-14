@@ -5,7 +5,11 @@ import Layout from '../components/layout'
 
 const Features = () => (
   <Layout>
-    <h1>Features</h1>
+    <h2>Superior design and excellent quality</h2>
+    <h3>
+      Not only effective in preventing pain, but a durable design for efficient
+      work
+    </h3>
   </Layout>
 )
 
