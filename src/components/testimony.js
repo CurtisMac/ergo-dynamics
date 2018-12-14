@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import global from '../globalStyles'
 
 const Card = styled.div`
   display: flex;
@@ -13,7 +12,7 @@ const Card = styled.div`
   margin: 0 5px;
   box-shadow: 3px 3px 10px #404040;
   background: white;
-  width: 250px;
+  width: ${props => (props.large ? '100%' : '250px')};
   min-height: 350px;
   text-align: center;
 `
@@ -37,7 +36,7 @@ const Author = styled.em`
 `
 
 const Testimony = props => (
-  <Card>
+  <Card {...props}>
     <Text>{props.text}</Text>
 
     <br />

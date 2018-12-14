@@ -13,8 +13,8 @@ module.exports = {
         link: '/page-2',
       },
       {
-        name: 'A really long link',
-        link: '/page-2',
+        name: 'Testimonials',
+        link: '/testimonials',
       },
     ],
   },

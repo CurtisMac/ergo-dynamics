@@ -7,7 +7,7 @@ import Card2 from '../components/cards/card2'
 import Card3 from '../components/cards/card3'
 import Card4 from '../components/cards/card4'
 import Card5 from '../components/cards/card5'
-import Testimonials from '../components/testimonyCarousel'
+import TestimonyCarousel from '../components/testimonyCarousel'
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => (
       image={data.postureGood.childImageSharp.fluid}
       bg={data.dotsSplatGreen.childImageSharp.fluid}
     />
-    <Testimonials />
+    <TestimonyCarousel />
   </Layout>
 )
 export const query = graphql`

@@ -65,13 +65,19 @@ class Testimonials extends React.Component {
     this.timer()
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.shiftTimeout)
+    clearTimeout(this.timerTimeout)
+  }
+
   shift() {
+    console.count('shifted')
     this.setState(state => ({ shifting: !state.shifting }))
   }
 
   timer() {
-    setTimeout(() => this.shift(), 9000)
-    setTimeout(() => this.timer(), 9000)
+    this.shiftTimeout = setTimeout(() => this.shift(), 2000)
+    this.timerTimeout = setTimeout(() => this.timer(), 2000)
   }
 
   mixer() {
