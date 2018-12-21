@@ -9,9 +9,7 @@ const Parent = styled.div`
   margin: 20px auto;
   overflow: hidden;
   max-width: 785px;
-  @media (max-width: 400px) {
-    padding: 0 10px;
-  }
+  padding: 0 10px;
 `
 const Carousel = styled.div`
   display: flex;

@@ -10,10 +10,7 @@ import Footer from './footer'
 const Content = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding: 1rem 1.5rem;
-  @media (max-width: 400px) {
-    padding: 1rem 0;
-  }
+  padding: 1rem 0;
 `
 
 const SpacerTop = styled.div`
